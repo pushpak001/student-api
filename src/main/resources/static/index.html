@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal | Login</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 15% 20%, #383a91 0, transparent 38%),
+        radial-gradient(circle at 85% 80%, #582e87 0, transparent 35%),
+        #101329;
+}
+
+.container {
+    width: 100%;
+    max-width: 980px;
+    min-height: 570px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 26px;
+    background: rgba(255,255,255,.07);
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    backdrop-filter: blur(18px);
+}
+
+.welcome {
+    padding: 55px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(145deg, rgba(99,102,241,.3),
+                                      rgba(168,85,247,.08));
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.logo {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    font-size: 22px;
+}
+
+.illustration {
+    text-align: center;
+    font-size: 100px;
+    padding: 25px 0;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,.2));
+}
+
+.welcome h1 {
+    font-size: clamp(27px, 3vw, 36px);
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    color: #c9cce7;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.login {
+    padding: 55px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login h2 {
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #b7bad1;
+    font-size: 14px;
+    margin-bottom: 34px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: #e3e4f2;
+    margin-bottom: 9px;
+}
+
+.field {
+    margin-bottom: 22px;
+}
+
+.input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: 12px;
+    background: rgba(10,12,31,.45);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.input-wrap:focus-within {
+    border-color: #9696ff;
+    box-shadow: 0 0 0 3px rgba(129,140,248,.13);
+}
+
+.input-wrap span {
+    color: #a5a8c6;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    height: 49px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #888ba9;
+}
+
+.toggle {
+    border: 0;
+    color: #c4b5fd;
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 2px 0 25px;
+    font-size: 12px;
+    color: #c9cce0;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember input {
+    accent-color: #8b5cf6;
+}
+
+a {
+    color: #c4b5fd;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.sign-in {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    background: linear-gradient(100deg, #6366f1, #a855f7);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 9px 25px rgba(99,102,241,.25);
+    transition: transform .2s, filter .2s;
+}
+
+.sign-in:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.message {
+    min-height: 20px;
+    margin-top: 14px;
+    color: #c4b5fd;
+    font-size: 13px;
+    text-align: center;
+}
+
+.signup {
+    text-align: center;
+    margin-top: 22px;
+    color: #b7bad1;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 14px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+    }
+
+    .welcome {
+        padding: 25px;
+    }
+
+    .illustration {
+        display: none;
+    }
+
+    .welcome h1 {
+        margin-top: 25px;
+        font-size: 26px;
+    }
+
+    .welcome p {
+        font-size: 13px;
+    }
+
+    .login {
+        padding: 32px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+    <section class="welcome">
+        <div class="brand">
+            <div class="logo">✦</div>
+            <span>Student Portal</span>
+        </div>
+
+        <div>
+            <div class="illustration" aria-hidden="true">🎓</div>
+            <h1>Welcome back!<br>Your future starts here.</h1>
+            <p>Continue your learning journey, explore your courses,
+               and take the next step toward your goals.</p>
+        </div>
+
+        <p>Learn today. Lead tomorrow.</p>
+    </section>
+
+    <section class="login">
+        <h2>Sign in</h2>
+        <p class="subtitle">Enter your details to access your account.</p>
+
+        <form id="loginForm">
+            <div class="field">
+                <label for="email">Email address</label>
+                <div class="input-wrap">
+                    <span aria-hidden="true">✉</span>
+                    <input id="email" type="email"
+                           placeholder="you@example.com"
+                           autocomplete="username" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <div class="input-wrap">
+                    <span aria-hidden="true">♙</span>
+                    <input id="password" type="password"
+                           placeholder="Enter your password"
+                           autocomplete="current-password" required>
+                    <button class="toggle" type="button"
+                            id="togglePassword">Show</button>
+                </div>
+            </div>
+
+            <div class="options">
+                <label class="remember">
+                    <input type="checkbox" id="remember">
+                    Remember me
+                </label>
+                <a href="#" id="forgotLink">Forgot password?</a>
+            </div>
+
+            <button class="sign-in" type="submit">Sign in →</button>
+            <p class="message" id="message" role="status"></p>
+        </form>
+
+        <p class="signup">New to Student Portal? <a href="#"
+           id="signupLink">Create an account</a></p>
+    </section>
+</main>
+
+<script>
+const password = document.getElementById("password");
+const toggle = document.getElementById("togglePassword");
+const message = document.getElementById("message");
+
+toggle.addEventListener("click", () => {
+    const showing = password.type === "text";
+    password.type = showing ? "password" : "text";
+    toggle.textContent = showing ? "Show" : "Hide";
+});
+
+document.getElementById("loginForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    message.textContent =
+        "Login UI ready! Authentication has not been connected yet.";
+});
+
+document.getElementById("forgotLink").addEventListener("click", (event) => {
+    event.preventDefault();
+    message.textContent = "Password recovery will be added later.";
+});
+
+document.getElementById("signupLink").addEventListener("click", (event) => {
+    event.preventDefault();
+    message.textContent = "Registration will be added later.";
+});
+</script>
+</body>
+</html>
